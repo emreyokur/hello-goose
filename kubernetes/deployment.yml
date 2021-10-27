@@ -5,7 +5,7 @@ metadata:
   labels:
     app: hello-goose
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: hello-goose
@@ -20,8 +20,10 @@ spec:
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
-        env:
-          - name: CF_INSTANCE_INDEX
-            value: kubernetes
-          - name: CF_INSTANCE_GUID
-            value: kubernetes
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "2001m"         
