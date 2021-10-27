@@ -4,13 +4,11 @@ stages:
 
 image: paketobuildpacks/builder
 
-variables:
-  REGISTRY_GROUP_PROJECT: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
-
 build:
   stage: build
   script:
-    - cnb/lifecycle/creator -app=. $REGISTRY_GROUP_PROJECT:latest
+    - cnb/lifecycle/creator -app=. emreyokur/hello-goose:latest
+    - docker push emreyokur/hello-goose
 
 deploy:
   stage: deploy
