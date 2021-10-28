@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-goose
-        image: emreyokur/hello-goose:latest
+        image: docker.io/emreyokur/hello-goose:latest
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
