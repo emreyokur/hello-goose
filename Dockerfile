@@ -1,8 +1,6 @@
-FROM ubuntu:18.04
+FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 
-RUN apt-get update -y && \
-    apt-get install -y python3-pip python3-dev
-
+RUN apk --update add bash nano
 # We copy just the requirements.txt first to leverage Docker cache
 COPY src/requirements.txt /app/requirements.txt
 
@@ -12,6 +10,6 @@ RUN pip3 install -r requirements.txt
 
 COPY . /app
 
-ENTRYPOINT [ "python" ]
+ENTRYPOINT [ "python3" ]
 
 CMD [ "src/hello_goose.py" ]
