@@ -12,4 +12,4 @@ COPY . /app
 
 ENTRYPOINT [ "python3" ]
 
-CMD [ "src/hello_goose.py" ]
+CMD [ "./src/hello_goose.py" ]
