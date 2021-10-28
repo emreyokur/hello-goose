@@ -1,7 +1,7 @@
 FROM python:3.9
 
 # We copy just the requirements.txt first to leverage Docker cache
-COPY ./src/requirements.txt /app/requirements.txt
+COPY requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
