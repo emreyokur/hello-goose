@@ -5,12 +5,16 @@ stages:
 image: alpine
 
 build:
+  tags:
+    - docker
   stage: build
   script:
     - docker build -t emreyokur/hello-goose .
     - docker push emreyokur/hello-goose
 
 deploy:
+  tags:
+    - kubectl
   stage: deploy
   script: 
     - kubectl apply -f kubernetes/deployment.yml -n hello-goose
