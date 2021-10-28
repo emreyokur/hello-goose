@@ -2,12 +2,14 @@ stages:
   - "build"
   - "deploy"
 
-image: paketobuildpacks/builder
+image: alpine
 
 build:
   stage: build
   script:
-    - /cnb/lifecycle/creator -app=. emreyokur/hello-goose:latest
+    - cd src/
+    - pack build hello-goose
+    - docker tag hello-goose emreyokur/hello-gooseemreyokur/hello-goose
     - docker push emreyokur/hello-goose
 
 deploy:
