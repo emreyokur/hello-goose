@@ -5,6 +5,8 @@ stages:
 image: alpine
 
 build:
+  before_script:
+    - git clean -fd
   tags:
     - docker
   stage: build
