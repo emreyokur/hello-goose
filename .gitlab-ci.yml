@@ -7,7 +7,7 @@ image: paketobuildpacks/builder
 build:
   stage: build
   script:
-    - cnb/lifecycle/creator -app=. emreyokur/hello-goose:latest
+    - /cnb/lifecycle/creator -app=. emreyokur/hello-goose:latest
     - docker push emreyokur/hello-goose
 
 deploy:
