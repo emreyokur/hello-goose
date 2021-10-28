@@ -9,7 +9,7 @@ build:
     - docker
   stage: build
   script:
-    - docker login -u emreyokur -p $DOCKER_PASS
+    - docker login -u emreyokur -p b5dc4d49-d771-4a21-a641-be4e81a36fb2
     - docker build -t emreyokur/hello-goose .
     - docker push emreyokur/hello-goose
 
