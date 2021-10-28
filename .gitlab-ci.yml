@@ -22,3 +22,4 @@ deploy:
   script: 
     - kubectl apply -f kubernetes/deployment.yml -n hello-goose
     - kubectl apply -f kubernetes/service.yml -n hello-goose
+    - kubectl apply -f kubernetes/ingress.yml -n hello-goose
