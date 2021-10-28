@@ -11,7 +11,7 @@ build:
     - docker
   stage: build
   script:
-    - docker login -u emreyokur -p b5dc4d49-d771-4a21-a641-be4e81a36fb2
+    - echo $DOCKER_TOKEN | docker login -u emreyokur --password-stdin
     - docker build -t emreyokur/hello-goose .
     - docker push emreyokur/hello-goose
 
@@ -20,6 +20,4 @@ deploy:
     - kubectl
   stage: deploy
   script: 
-    - kubectl apply -f kubernetes/deployment.yml -n hello-goose
-    - kubectl apply -f kubernetes/service.yml -n hello-goose
-    - kubectl apply -f kubernetes/ingress.yml -n hello-goose
+    - helm upgrade --install hello-goose helm/ -n hello-goose --atomic
