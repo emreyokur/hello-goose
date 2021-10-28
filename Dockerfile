@@ -8,6 +8,6 @@ WORKDIR /app
 RUN pip3 install -r requirements.txt
 
 COPY . /app
-ENV FLASK_APP=/app/src/hello_goose.py flask run -h 0.0.0.0 -p 8080
+ENV FLASK_APP="/app/src/hello_goose.py flask run -h 0.0.0.0 -p 8080"
 
 CMD [ "flask" "run" ]
