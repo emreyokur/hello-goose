@@ -8,7 +8,6 @@ WORKDIR /app
 RUN pip3 install -r requirements.txt
 
 COPY . /app
+ENV FLASK_APP=/app/src/hello_goose.py
 
-ENTRYPOINT [ "python3" ]
-
-CMD [ "./src/hello_goose.py" ]
+CMD [ flask run ]
