@@ -7,9 +7,7 @@ image: alpine
 build:
   stage: build
   script:
-    - cd src/
-    - pack build hello-goose
-    - docker tag hello-goose emreyokur/hello-gooseemreyokur/hello-goose
+    - docker build -t emreyokur/hello-goose .
     - docker push emreyokur/hello-goose
 
 deploy:
